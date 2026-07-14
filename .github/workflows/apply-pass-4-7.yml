@@ -1,0 +1,39 @@
+name: Apply Pass 4-7 implementation
+
+on:
+  push:
+    branches:
+      - pass-4-7
+
+permissions:
+  contents: write
+
+jobs:
+  apply:
+    if: ${{ github.actor != 'github-actions[bot]' }}
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: pass-4-7
+          fetch-depth: 0
+      - name: Reconstruct and validate patch
+        shell: bash
+        run: |
+          cat .avlab-patch/part-* | base64 --decode | gzip --decompress > /tmp/pass-4-7.patch
+          echo "b0e5f402d1646ae7608781091662606c666baca31b93b04efdb03c2e601872ea  /tmp/pass-4-7.patch" | sha256sum --check
+          git apply --check /tmp/pass-4-7.patch
+      - name: Apply implementation and remove staging files
+        shell: bash
+        run: |
+          git apply /tmp/pass-4-7.patch
+          rm -rf .avlab-patch
+          rm -f .github/workflows/apply-pass-4-7.yml
+      - name: Commit implementation
+        shell: bash
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git commit -m "Implement AVlab passes 4-7"
+          git push origin HEAD:pass-4-7
