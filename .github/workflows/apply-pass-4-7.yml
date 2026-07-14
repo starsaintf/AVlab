@@ -5,16 +5,20 @@ on:
     branches:
       - main
     types:
-      - ready_for_review
+      - edited
 
 permissions:
   contents: write
 
 jobs:
   apply:
-    if: ${{ github.event.pull_request.head.repo.full_name == github.repository && github.head_ref == 'pass-4-7' }}
     runs-on: ubuntu-latest
     steps:
+      - name: Validate trigger context
+        shell: bash
+        run: |
+          test "$GITHUB_HEAD_REF" = "pass-4-7"
+          test "$(jq -r '.pull_request.head.repo.full_name' "$GITHUB_EVENT_PATH")" = "$GITHUB_REPOSITORY"
       - uses: actions/checkout@v4
         with:
           ref: pass-4-7
