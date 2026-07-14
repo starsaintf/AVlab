@@ -1,0 +1,5 @@
+{
+  "$schema":"https://json-schema.org/draft/2020-12/schema","$id":"https://avlab.dev/schemas/review/0.1","title":"AVlab Review","type":"object",
+  "required":["schema","reviewId","projectId","versionId","title","token","permissions","requiredApprovals","status","createdAt"],
+  "properties":{"schema":{"const":"avlab.review/0.1"},"reviewId":{"type":"string","pattern":"^rev_"},"projectId":{"type":"string","pattern":"^avp_"},"versionId":{"type":"string","pattern":"^avv_"},"baseVersionId":{"type":"string","pattern":"^avv_"},"title":{"type":"string"},"token":{"type":"string"},"permissions":{"type":"array","items":{"enum":["view","comment","approve","download"]},"uniqueItems":true},"requiredApprovals":{"type":"integer","minimum":1},"status":{"enum":["open","approved","changes-requested","rejected","closed"]},"createdAt":{"type":"string","format":"date-time"},"expiresAt":{"type":"string","format":"date-time"}},"additionalProperties":false
+}
