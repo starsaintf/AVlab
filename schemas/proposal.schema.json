@@ -1,0 +1,5 @@
+{
+  "$schema":"https://json-schema.org/draft/2020-12/schema","$id":"https://avlab.dev/schemas/proposal/0.1","title":"AVlab Proposal","type":"object",
+  "required":["schema","proposalId","projectId","versionId","title","status","createdAt","createdBy"],
+  "properties":{"schema":{"const":"avlab.proposal/0.1"},"proposalId":{"type":"string","pattern":"^prp_"},"projectId":{"type":"string","pattern":"^avp_"},"versionId":{"type":"string","pattern":"^avv_"},"title":{"type":"string","minLength":1},"status":{"enum":["draft","under-review","changes-requested","approved","rejected","applied"]},"createdAt":{"type":"string","format":"date-time"},"createdBy":{"type":"string"},"reviewId":{"type":"string"},"reviewUrl":{"type":"string","format":"uri"}},"additionalProperties":false
+}
