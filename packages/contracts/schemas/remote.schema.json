@@ -1,0 +1,4 @@
+{
+  "$schema":"https://json-schema.org/draft/2020-12/schema","$id":"https://avlab.dev/schemas/remote/0.1","title":"AVlab Remote","type":"object",
+  "required":["schema","name","url","token","createdAt"],"properties":{"schema":{"const":"avlab.remote/0.1"},"name":{"type":"string","minLength":1},"url":{"type":"string","format":"uri"},"token":{"type":"string"},"createdAt":{"type":"string","format":"date-time"}},"additionalProperties":false
+}
