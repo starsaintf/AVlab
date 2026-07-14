@@ -1,16 +1,18 @@
 name: Apply Pass 4-7 implementation
 
 on:
-  push:
+  pull_request:
     branches:
-      - pass-4-7
+      - main
+    types:
+      - ready_for_review
 
 permissions:
   contents: write
 
 jobs:
   apply:
-    if: ${{ github.actor != 'github-actions[bot]' }}
+    if: ${{ github.event.pull_request.head.repo.full_name == github.repository && github.head_ref == 'pass-4-7' }}
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
