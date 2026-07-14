@@ -1,6 +1,6 @@
 {
   "name": "@avlab/cli",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "type": "module",
   "license": "Apache-2.0",
   "bin": {
@@ -14,7 +14,8 @@
   "dependencies": {
     "@avlab/core": "0.1.0",
     "commander": "^14.0.0",
-    "@avlab/local-bridge": "0.1.0"
+    "@avlab/local-bridge": "0.1.0",
+    "@avlab/server": "0.2.0"
   },
   "devDependencies": {
     "typescript": "^5.8.3",
