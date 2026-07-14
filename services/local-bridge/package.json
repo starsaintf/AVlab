@@ -1,0 +1,24 @@
+{
+  "name": "@avlab/local-bridge",
+  "version": "0.1.0",
+  "type": "module",
+  "license": "Apache-2.0",
+  "exports": {
+    ".": "./dist/index.js"
+  },
+  "types": "./dist/index.d.ts",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "test": "vitest run --pool=forks --maxWorkers=1"
+  },
+  "dependencies": {
+    "@avlab/core": "0.1.0",
+    "chokidar": "^4.0.3",
+    "fastify": "^5.4.0"
+  },
+  "devDependencies": {
+    "typescript": "^5.8.3",
+    "vitest": "^3.2.4"
+  }
+}

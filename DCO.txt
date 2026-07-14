@@ -1,0 +1,5 @@
+Developer Certificate of Origin
+
+By making a contribution to AVlab, I certify that I have the right to submit it under the project licenses and that I understand the contribution and its history will be public.
+
+Contributors sign off commits using: Signed-off-by: Name <email>

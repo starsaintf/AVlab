@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://avlab.dev/schemas/version/0.1",
+  "title": "AVlab Version",
+  "type": "object",
+  "required": ["schema", "versionId", "projectId", "parentVersionIds", "direction", "kind", "message", "createdAt", "createdBy", "packageId", "manifestPath"],
+  "properties": {
+    "schema": {"const": "avlab.version/0.1"},
+    "versionId": {"type": "string", "pattern": "^avv_"},
+    "projectId": {"type": "string", "pattern": "^avp_"},
+    "parentVersionIds": {"type": "array", "items": {"type": "string"}},
+    "direction": {"type": "string"},
+    "kind": {"enum": ["named", "recovery", "agent-proposal"]},
+    "message": {"type": "string"},
+    "createdAt": {"type": "string", "format": "date-time"},
+    "createdBy": {"type": "object"},
+    "packageId": {"type": "string", "pattern": "^pkg_"},
+    "manifestPath": {"type": "string"}
+  },
+  "additionalProperties": false
+}

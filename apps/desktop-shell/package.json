@@ -1,0 +1,20 @@
+{
+  "name": "@avlab/desktop-shell",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "license": "AGPL-3.0-or-later",
+  "main": "dist/main.js",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "test": "vitest run --passWithNoTests",
+    "start": "electron dist/main.js"
+  },
+  "dependencies": {
+    "@avlab/core": "0.1.0",
+    "@avlab/local-bridge": "0.1.0",
+    "electron": "^37.2.0"
+  },
+  "devDependencies": {"typescript": "^5.8.3", "vitest": "^3.2.4"}
+}

@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://avlab.dev/schemas/project/0.1",
+  "title": "AVlab Project",
+  "type": "object",
+  "required": ["schema", "projectId", "name", "createdAt", "rootKind", "includePaths", "defaultDirection", "capabilityLevel", "extensions"],
+  "properties": {
+    "schema": {"const": "avlab.project/0.1"},
+    "projectId": {"type": "string", "pattern": "^avp_"},
+    "name": {"type": "string", "minLength": 1},
+    "createdAt": {"type": "string", "format": "date-time"},
+    "rootKind": {"enum": ["directory", "single-file"]},
+    "includePaths": {"type": "array", "items": {"type": "string"}, "minItems": 1},
+    "defaultDirection": {"type": "string", "minLength": 1},
+    "capabilityLevel": {"enum": ["U0", "U1", "U2", "U3", "U4", "U5"]},
+    "extensions": {"type": "object"}
+  },
+  "additionalProperties": false
+}

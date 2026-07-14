@@ -1,0 +1,17 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://avlab.dev/schemas/package/0.1",
+  "title": "AVlab Native Package",
+  "type": "object",
+  "required": ["schema", "packageId", "projectId", "createdAt", "entries", "totalBytes", "uniqueBytesWritten"],
+  "properties": {
+    "schema": {"const": "avlab.package/0.1"},
+    "packageId": {"type": "string", "pattern": "^pkg_"},
+    "projectId": {"type": "string", "pattern": "^avp_"},
+    "createdAt": {"type": "string", "format": "date-time"},
+    "entries": {"type": "array"},
+    "totalBytes": {"type": "integer", "minimum": 0},
+    "uniqueBytesWritten": {"type": "integer", "minimum": 0}
+  },
+  "additionalProperties": false
+}
