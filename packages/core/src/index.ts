@@ -7,3 +7,8 @@ export * from "./compare.js";
 export * from "./maintenance.js";
 export * from "./manifests.js";
 export * from "./store.js";
+
+export * from "./preview.js";
+export * from "./collaboration.js";
+export * from "./sync.js";
+export * from "./portable.js";
