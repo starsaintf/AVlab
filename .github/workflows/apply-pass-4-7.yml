@@ -1,7 +1,7 @@
 name: Apply Pass 4-7 implementation
 
 on:
-  pull_request:
+  pull_request_target:
     branches:
       - main
     types:
@@ -12,13 +12,9 @@ permissions:
 
 jobs:
   apply:
+    if: github.event.pull_request.head.ref == 'pass-4-7' && github.event.pull_request.head.repo.full_name == github.repository
     runs-on: ubuntu-latest
     steps:
-      - name: Validate trigger context
-        shell: bash
-        run: |
-          test "$GITHUB_HEAD_REF" = "pass-4-7"
-          test "$(jq -r '.pull_request.head.repo.full_name' "$GITHUB_EVENT_PATH")" = "$GITHUB_REPOSITORY"
       - uses: actions/checkout@v4
         with:
           ref: pass-4-7
@@ -35,6 +31,13 @@ jobs:
           git apply /tmp/pass-4-7.patch
           rm -rf .avlab-patch
           rm -f .github/workflows/apply-pass-4-7.yml
+      - name: Validate repository
+        shell: bash
+        run: |
+          npm ci
+          npm run typecheck
+          npm test
+          npm run build
       - name: Commit implementation
         shell: bash
         run: |
