@@ -1,0 +1,14 @@
+services:
+  avlab:
+    build:
+      context: ../..
+      dockerfile: deploy/docker-compose/Dockerfile
+    ports:
+      - "4318:4318"
+    environment:
+      AVLAB_SERVER_TOKEN: ${AVLAB_SERVER_TOKEN:?Set AVLAB_SERVER_TOKEN}
+    volumes:
+      - avlab-data:/data
+    restart: unless-stopped
+volumes:
+  avlab-data:
