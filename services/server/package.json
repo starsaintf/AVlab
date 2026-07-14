@@ -1,0 +1,24 @@
+{
+  "name": "@avlab/server",
+  "version": "0.2.0",
+  "type": "module",
+  "license": "AGPL-3.0-or-later",
+  "exports": {
+    ".": "./dist/index.js"
+  },
+  "types": "./dist/index.d.ts",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "test": "vitest run --pool=forks --maxWorkers=1"
+  },
+  "dependencies": {
+    "@avlab/contracts": "0.1.0",
+    "fastify": "^5.4.0"
+  },
+  "devDependencies": {
+    "typescript": "^5.8.3",
+    "vitest": "^3.2.4",
+    "@avlab/core": "0.1.0"
+  }
+}
