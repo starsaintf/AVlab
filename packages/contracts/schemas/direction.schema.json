@@ -1,0 +1,5 @@
+{
+  "$schema":"https://json-schema.org/draft/2020-12/schema","$id":"https://avlab.dev/schemas/direction/0.1","title":"AVlab Creative Direction","type":"object",
+  "required":["schema","projectId","name","createdAt","createdBy","archived"],
+  "properties":{"schema":{"const":"avlab.direction/0.1"},"projectId":{"type":"string","pattern":"^avp_"},"name":{"type":"string","minLength":1},"baseVersionId":{"type":"string","pattern":"^avv_"},"headVersionId":{"type":"string","pattern":"^avv_"},"createdAt":{"type":"string","format":"date-time"},"createdBy":{"type":"string"},"archived":{"type":"boolean"}},"additionalProperties":false
+}
